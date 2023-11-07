@@ -1,11 +1,5 @@
 <template>
-
-    <div>
-        <button @click="back()">Back</button>
-        <button @click="forward()">Forward</button>
-        <button @click="redirect()">Redirect</button>
-    </div>
-
+    <RouterHistoryButton/>
     <h1>Jobs</h1>
     <div v-for="job in jobs" :key="job.id">
         <router-link :to="{ name: 'job-details', params: { id: job.id } }">
@@ -14,27 +8,21 @@
     </div>
 </template>
 <script>
+import RouterHistoryButton from './RouterHistoryButton.vue';
 export default {
+    components : {RouterHistoryButton},
     data() {
         return {
-            jobs: [
-                { id: 1, title: "Ui/UX Designer" },
-                { id: 2, title: "Vue Developer" },
-                { id: 3, title: "Node Developer" },
-            ]
+            jobs: []
         }
     },
-    methods: {
-        back(){
-            this.$router.go(-1);
-        },
-        forward(){
-            this.$router.go(1);
-        },
-        redirect(){
-            this.$router.push({ name:'home' });
-        }
+    
+    mounted() {
+        fetch('http://localhost:3000/blogs')
+        .then(function(res){ //short syntax is .then(res => res.json())
+            return res.json();
+        }).then(data => this.jobs = data)
     },
+    
 }
-
 </script>

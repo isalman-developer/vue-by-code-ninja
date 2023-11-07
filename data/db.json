@@ -1,0 +1,7 @@
+{
+    "blogs":[
+        {"id": 1, "title":"Web Designing Article", "details":"This article is about Designing a web page"},
+        {"id": 1, "title":"Web Development Article", "details":"How to design beackend of a web project"},
+        {"id": 1, "title":"Styling a website", "details":"Here we define how to style a website"}
+    ]
+}
