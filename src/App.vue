@@ -1,49 +1,13 @@
 <template>
-  <div>
-
-    <h1>Reaction Counter</h1>
-    <button @click="start" :disabled="isPlaying">Play</button>
-    
-    <Block v-if="isPlaying" :delay="delay" @end="endGame"></Block>
-    
-    <Results v-if="showResults" :score="score"></Results>
-
-    <Signup />
+  <div class="home-button">
+    <router-link :to="'/'">Home</router-link>
   </div>
+  <router-view />
 </template>
 
 <script>
-import Signup from "./components/form-inputs/Signup.vue";
-import Block from "./components/reaction-counter/Block.vue";
-import Results from "./components/reaction-counter/Results.vue";
-
-
 export default {
-  components: { Block, Results, Signup },
-  name,
-    Signup: "App",
-  data() {
-    return {
-      isPlaying: false,
-      delay: null,
-      score: null,
-      showResults: false
-    };
-  },
-
-  methods: {
-    start() {
-      this.isPlaying = true;
-      this.showResults = false;
-      this.delay = 2000 + Math.random() * 5000;
-    },
-
-    endGame(incomingScore) {
-      this.score = incomingScore;
-      this.isPlaying = false;
-      this.showResults = true;
-    }
-  },
+  name: "App",
 };
 </script>
 
@@ -55,6 +19,16 @@ export default {
   text-align: center;
   color: #444;
   margin-top: 60px;
+}
+
+.home-button {
+  display: flex;
+}
+
+.home-button a {
+  display: block;
+  margin-left: auto;
+  margin-right: 10px;
 }
 
 h1 {
