@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="textCenter">
         <button @click="back()">Back</button>
         <button @click="forward()">Forward</button>
         <button @click="redirect()">Redirect</button>

@@ -1,13 +1,15 @@
 <template>
+  <div id="textCenter">
     <h1>Reaction Counter</h1>
     <button @click="start" :disabled="isPlaying">Play</button>
     <Block v-if="isPlaying" :delay="delay" @end="endGame"></Block>
     <Results v-if="showResults" :score="score"></Results>
+  </div>
 </template>
 
 <script>
-import Block from "../components/reaction-counter/Block.vue";
-import Results from "../components/reaction-counter/Results.vue";
+import Block from "../../components/reaction-counter/Block.vue";
+import Results from "../../components/reaction-counter/Results.vue";
 export default {
   components: { Block, Results },
   data() {

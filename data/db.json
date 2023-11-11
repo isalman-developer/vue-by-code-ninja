@@ -1,7 +1,45 @@
 {
-    "blogs":[
-        {"id": 1, "title":"Web Designing Article", "details":"This article is about Designing a web page"},
-        {"id": 1, "title":"Web Development Article", "details":"How to design beackend of a web project"},
-        {"id": 1, "title":"Styling a website", "details":"Here we define how to style a website"}
-    ]
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Web Designing Article",
+      "details": "This article is about Designing a web page"
+    },
+    {
+      "id": 1,
+      "title": "Web Development Article",
+      "details": "How to design beackend of a web project"
+    },
+    {
+      "id": 1,
+      "title": "Styling a website",
+      "details": "Here we define how to style a website"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Nostrud perspiciatis",
+      "details": "Quia consequatur aut",
+      "complete": true
+    },
+    {
+      "id": 2,
+      "title": "Design marketing email",
+      "details": "Pics and banner for email",
+      "complete": false
+    },
+    {
+      "title": "Omnis et minim labor",
+      "details": "Ut consequat Ut et ",
+      "complete": true,
+      "id": 3
+    },
+    {
+      "title": "Consectetur modi vol",
+      "details": "Amet ratione veniam",
+      "complete": false,
+      "id": 4
+    }
+  ]
 }

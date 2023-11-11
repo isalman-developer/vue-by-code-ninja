@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="textCenter">
         <ol>
             <li>
                 <router-link to="reaction-counter">Reation Counter Game (Props, Emit, Mounted, setInterval)</router-link>
@@ -12,6 +12,11 @@
             <li>
                 <router-link :to="{name:'jobs'}">
                     Jobs (Route (URL), Redirect url, 404 route, <b>(go, back and redirect router history)</b>)
+                </router-link>
+            </li>
+            <li>
+                <router-link :to="{name:'projects'}">
+                    Project-Planner 
                 </router-link>
             </li>
         </ol>

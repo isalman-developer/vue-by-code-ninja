@@ -1,16 +1,17 @@
 <template>
-    <RouterHistoryButton />
-    <h1>Job Details</h1>
+    <div id="textCenter">
+        <RouterHistoryButton />
+        <h1>Job Details</h1>
 
-    <div v-if="job">
-        <p>ID : {{ job.id }}</p>
-        <p>Title : {{ job.title }}</p>
-        <p>Detail : {{ job.details }}</p>
+        <div v-if="job">
+            <p>ID : {{ job.id }}</p>
+            <p>Title : {{ job.title }}</p>
+            <p>Detail : {{ job.details }}</p>
+        </div>
+        <div v-else>
+            <p>Job is loading.....</p>
+        </div>
     </div>
-    <div v-else>
-        <p>Job is loading.....</p>
-    </div>
-    
 </template>
 <script>
 import RouterHistoryButton from './RouterHistoryButton.vue';
