@@ -16,7 +16,12 @@
             </li>
             <li>
                 <router-link :to="{name:'projects'}">
-                    Project-Planner 
+                    Project-Planner(Emit & $event, Pops, Project Filteration, how to use mounted, mark as complete, add, edit and delete project, array filter and find, form submitting, toogle details )
+                </router-link>
+            </li>
+            <li>
+                <router-link :to="{name:'compositionApiBasic'}">
+                    Composition Api Basic (Props, Ref, Computed, Event Hooks, (Async & Await, Composables) <b>(Posts)</b> )
                 </router-link>
             </li>
         </ol>

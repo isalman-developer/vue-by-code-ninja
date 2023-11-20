@@ -3,7 +3,7 @@
         <div class="actions">
             <h2 @click="toggleDetails">{{ project.title }}</h2>
             <div class="icons">
-                <router-link :to="{ name: 'EditProject', params: { id: project.id } }">
+                <router-link :to="{ name: 'editProject', params: { id: project.id } }">
                     <span class="material-icons">edit</span>
                 </router-link>
                 <span class="material-icons" @click="deleteProject">delete</span>
@@ -41,7 +41,10 @@ export default {
             fetch(this.uri, {
                 method: 'PATCH',
                 headers: { "Content-type": "application/json" },
-                // we can either send json or form data in fetch and no other data type like json object, here project is an object 
+                /*
+                 content-type mean to tell the server that we are sending the json type of data
+                 we can either send json or form data in fetch and no other data type like json object, here project is an object 
+                */
                 body: JSON.stringify({ complete: !this.project.complete })
             })
                 .then(this.$emit("singleProjectCompleteEmit", this.project.id))
