@@ -1,27 +1,37 @@
 <template>
     <div v-if="error">{{ error }}</div>
     <div v-if="post" class="post">
+
         <h3>{{ post.title }}</h3>
         <p>{{ post.body }}</p>
-        <span v-for="tag in post.tags" :key="tag.id">
-            #{{ tag }}
-        </span>
+
+        <span v-for="tag in post.tags" :key="tag.id"> #{{ tag }} </span>
+        <div> <button @click="deletePost">Delete</button> </div>
+
     </div>
     <Spinner v-else />
 </template>
 <script>
-import { useRoute } from 'vue-router';
+import { projectFirestore } from '@/firebase/config';
+import { useRouter, useRoute } from 'vue-router';
 import getPost from '../../../composables/getPost';
 import Spinner from '../../Spinner.vue';
+
 export default {
     props: ['id'],
     components: { Spinner },
     setup(props) {
+        const router = useRouter();
         const route = useRoute();
         const { post, error, loadPost } = getPost(route.params.id);
         // const { post, error, loadPost } = getPost(props.id);
         loadPost();
-        return { post, error }
+
+        const deletePost = async () => {
+            await projectFirestore.collection('posts').doc(props.id).delete();
+            router.push({ name: 'postsAsyncAwait' });
+        }
+        return { post, error, deletePost }
     }
 }
 </script>

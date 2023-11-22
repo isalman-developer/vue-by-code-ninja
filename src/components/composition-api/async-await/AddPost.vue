@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { projectFirestore, timestamp } from '@/firebase/config';
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
 export default {
@@ -41,15 +42,16 @@ export default {
             const post = {
                 title: title.value,
                 body: body.value,
-                tags: tags.value
+                tags: tags.value,
+                createdAt: timestamp()
             }
 
-            await fetch('http://localhost:3000/posts', {
-                method: 'POST',
-                headers: { "Content-type": "application/json" },
-                body: JSON.stringify(post)
-            })
-            
+            // await fetch('http://localhost:3000/posts', {
+            //     method: 'POST',
+            //     headers: { "Content-type": "application/json" },
+            //     body: JSON.stringify(post)
+            // })
+            projectFirestore.collection('posts').add(post);
             router.push({name:'postsAsyncAwait'});
         }
         return { title, body, tag, tags, addTagToArray, submitForm }
