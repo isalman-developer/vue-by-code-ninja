@@ -29,7 +29,6 @@ const getPosts = () => {
         let docs = snap.docs.map((doc)=>{
           return {...doc.data(), id:doc.id}
         }) 
-
         posts.value = docs;
       });
      
